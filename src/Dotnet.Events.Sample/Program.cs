@@ -8,6 +8,9 @@ namespace Dotnet.Events.Sample
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("-------------------------------------------------------------");
+            Console.WriteLine("Exemplo de evento");
+
             var longProcess = new LongProcess();
             longProcess.BeforeEvent += () =>
             {
@@ -24,6 +27,18 @@ namespace Dotnet.Events.Sample
             };
 
             longProcess.Run();
+
+            Console.WriteLine("-------------------------------------------------------------");
+            Console.WriteLine("Exemplo de predicate");
+
+            var salarios = new double[] { 3.500, 2.550, 7667.00 };
+            Predicate<double> predicate = VerificaSalariosAltos;
+            var salariosAltos = Array.Find(salarios, predicate);
+            Console.WriteLine($"{salariosAltos}");
+
+            Console.WriteLine("-------------------------------------------------------------");
         }
+
+        public static bool VerificaSalariosAltos(double salario) => salario >= 5000;
     }
 }
