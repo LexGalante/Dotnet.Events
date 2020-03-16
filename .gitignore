@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/Dotnet.Events/v16
+/src/Dotnet.Events.Sample/bin/Debug/netcoreapp3.0
+/src/Dotnet.Events.Sample/obj
