@@ -70,9 +70,13 @@ namespace Dotnet.Events.Sample
             del += GetRandomInt;
 
             Console.WriteLine($"actions in delagate: {del.GetInvocationList().Length}");
-
+            var total = 0;
             foreach (RandomInt d in del.GetInvocationList())
+            {
+                total += d();
                 Console.WriteLine(d());
+            }
+            Console.WriteLine(total);
 
             Console.WriteLine("-------------------------------------------------------------");
         }
